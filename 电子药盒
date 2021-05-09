@@ -1,7 +1,7 @@
 /***************************************
-¿ÎÌâÃû³Æ£ºµç×ÓÒ©ºĞ
-ÉÛ¼ÎÜ²
-×Ô¶¯»¯1802
+è¯¾é¢˜åç§°ï¼šç”µå­è¯ç›’
+é‚µå˜‰æ‡¿
+è‡ªåŠ¨åŒ–1802
 18030140238
 12MHZ
 ***********************************************/
@@ -10,9 +10,9 @@
 #define uint unsigned int 
 #define uchar unsigned char
 sbit beep=P3^1;
-uchar code disbitcode[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};				  //ËÍÎ»Âë
+uchar code disbitcode[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};				  //é€ä½ç 
 uchar code discode[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,
-0xF8,0x80,0x90,0xBF,0x91,0xFF,0x98};	  //ËÍ¶ÎÂë0-9ºÍ"-,y,ÃğµÆ"
+0xF8,0x80,0x90,0xBF,0x91,0xFF,0x98};	  //é€æ®µç 0-9å’Œ"-,y,ç­ç¯"
 uchar  disbuf[8]={0,0,10,0,0,10,2,1};										   
 uchar  disbuf1[8]={13,1,0,10,10,10,1,11};			                             
 uchar  disbuf2[8]={0,0,10,0,0,10,2,1};										 
@@ -37,13 +37,13 @@ void display3(void);
 void display5(void);
 void display7(void);
 uchar keyscan();
-/*************ÑÓÊ±³ÌĞò**************/											 
+/*************å»¶æ—¶ç¨‹åº**************/											 
 void delay(uint m)		 
   {
   	while(--m);
   } 
-/*************ÏÔÊ¾³ÌĞò**************/
-void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00 
+/*************æ˜¾ç¤ºç¨‹åº**************/
+void display(void)		  //æ•°ç ç®¡12â€”â€”00â€”â€”00 
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -54,7 +54,7 @@ void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00
 	}
   }
 	
- void display2(void)		  //ÊıÂë¹ÜÏÔÊ¾12-00-00
+ void display2(void)		  //æ•°ç ç®¡æ˜¾ç¤º12-00-00
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -65,7 +65,7 @@ void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00
 	}
   }
 	
-	void display4(void)		//ÊıÂë¹ÜÏÔÊ¾00-00-00  
+	void display4(void)		//æ•°ç ç®¡æ˜¾ç¤º00-00-00  
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -76,7 +76,7 @@ void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00
 	}
   }
 	
-   void display6(void)		  //ÊıÂë¹ÜÏÔÊ¾00-00-00
+   void display6(void)		  //æ•°ç ç®¡æ˜¾ç¤º00-00-00
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -86,7 +86,7 @@ void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00
 		delay(100);	
 	}
   }
-	void display8(void)		  //ÊıÂë¹ÜÏÔÊ¾00-00-00
+	void display8(void)		  //æ•°ç ç®¡æ˜¾ç¤º00-00-00
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -97,7 +97,7 @@ void display(void)		  //ÊıÂë¹Ü12¡ª¡ª00¡ª¡ª00
 	}
   }
 	
-void display1(void)		  //ÊıÂë¹ÜÏÔÊ¾y1    01
+void display1(void)		  //æ•°ç ç®¡æ˜¾ç¤ºy1    01
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -110,7 +110,7 @@ void display1(void)		  //ÊıÂë¹ÜÏÔÊ¾y1    01
 
 
   
-  void display3(void)		 //ÊıÂë¹ÜÏÔÊ¾y2  01 
+  void display3(void)		 //æ•°ç ç®¡æ˜¾ç¤ºy2  01 
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -122,7 +122,7 @@ void display1(void)		  //ÊıÂë¹ÜÏÔÊ¾y1    01
   } 
   
 
-  void display5(void)		  //ÊıÂë¹ÜÏÔÊ¾y3     01
+  void display5(void)		  //æ•°ç ç®¡æ˜¾ç¤ºy3     01
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -132,7 +132,7 @@ void display1(void)		  //ÊıÂë¹ÜÏÔÊ¾y1    01
 		delay(100);	
 	}
   }
-	  void display7(void)		  //ÊıÂë¹ÜÏÔÊ¾y4     04
+	  void display7(void)		  //æ•°ç ç®¡æ˜¾ç¤ºy4     04
   {
   	uchar i;
   	for(i=0;i<8;i++)
@@ -143,7 +143,7 @@ void display1(void)		  //ÊıÂë¹ÜÏÔÊ¾y1    01
 	}
   }
   
-  /*************³õÊ¼»¯³ÌĞò**************/
+  /*************åˆå§‹åŒ–ç¨‹åº**************/
 void ini(void)				
 	 {
 	   	  TMOD=0x11;
@@ -155,25 +155,25 @@ void ini(void)
 
 void init (void)
 		{
-				disbuf2[0]=m1%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+				disbuf2[0]=m1%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 			    disbuf2[1]=m1/10;
 				disbuf2[3]=f1%10;
 				disbuf2[4]=f1/10;
 			  	disbuf2[6]=s1%10;	
 				disbuf2[7]=s1/10;
-				disbuf4[0]=m2%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+				disbuf4[0]=m2%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 			    disbuf4[1]=m2/10;
 				disbuf4[3]=f2%10;
 				disbuf4[4]=f2/10;
 			  	disbuf4[6]=s2%10;	
 				disbuf4[7]=s2/10;
-				disbuf6[0]=m3%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+				disbuf6[0]=m3%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 			    disbuf6[1]=m3/10;
 				disbuf6[3]=f3%10;
 				disbuf6[4]=f3/10;
 			  	disbuf6[6]=s3%10;	
 				disbuf6[7]=s3/10;	
-			disbuf8[0]=m4%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+			disbuf8[0]=m4%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 			    disbuf8[1]=m4/10;
 				disbuf8[3]=f4%10;
 				disbuf8[4]=f4/10;
@@ -181,8 +181,8 @@ void init (void)
 				disbuf8[7]=s4/10;	
 			
 		}
-/*************ÖĞ¶Ï³ÌĞò**************/
-void t0(void) interrupt 1 using 0     //ÓÃµÚ0×é¼Ä´æÆ÷
+/*************ä¸­æ–­ç¨‹åº**************/
+void t0(void) interrupt 1 using 0     //ç”¨ç¬¬0ç»„å¯„å­˜å™¨
 	 {
 	 	 cent++;
 		 TH0=(65536-50000)/256; 
@@ -205,7 +205,7 @@ void t0(void) interrupt 1 using 0     //ÓÃµÚ0×é¼Ä´æÆ÷
 											}
 								}
 					}
-				disbuf[0]=second%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+				disbuf[0]=second%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 			    disbuf[1]=second/10;
 				disbuf[3]=minite%10;
 				disbuf[4]=minite/10;
@@ -217,33 +217,33 @@ void t0(void) interrupt 1 using 0     //ÓÃµÚ0×é¼Ä´æÆ÷
 	 
 
  
-/*************¼üÉ¨Ãè³ÌĞò**************/
+/*************é”®æ‰«æç¨‹åº**************/
 uchar keyscan()
 {
- uchar tmp;			 //ÁĞºÅ£¬ĞĞºÅ
- P1=0xff;               //·¢È«ĞĞ0É¨ÃèÂë
- if((P1&0xff)!=0xff)     //ÈôÓĞ¼ü°´ÏÂ
+ uchar tmp;			 //åˆ—å·ï¼Œè¡Œå·
+ P1=0xff;               //å‘å…¨è¡Œ0æ‰«æç 
+ if((P1&0xff)!=0xff)     //è‹¥æœ‰é”®æŒ‰ä¸‹
   {
-   delay(1000);          // ÑÓÊ±È¥¶¶   
-   if((P1&0xff)!=0xff)          //ÓĞ¼ü°´ÏÂ
+   delay(1000);          // å»¶æ—¶å»æŠ–   
+   if((P1&0xff)!=0xff)          //æœ‰é”®æŒ‰ä¸‹
        {
 		tmp=(P1&0xff);
 	    do{}while((P1&0xff)!=0xff);
 		  tmp=~tmp;
 			          
-      return (tmp);			 //»¹»Ø¼üÖµ
+      return (tmp);			 //è¿˜å›é”®å€¼
 	  }                        
   }															
-   return (0);                                //ÎŞ¼ü°´ÏÂ,»¹»Ø0
+   return (0);                                //æ— é”®æŒ‰ä¸‹,è¿˜å›0
 }
 
-/********Ö÷³ÌĞò*********/
+/********ä¸»ç¨‹åº*********/
 void  main (void)
 {	
 	 uchar v;
 	 P2=0xff;
-	 P0=0x0c;//ÊıÂë¹ÜÏÔÊ¾P.
-	 ini(); init ();	//³õÊ¼»¯
+	 P0=0x0c;//æ•°ç ç®¡æ˜¾ç¤ºP.
+	 ini(); init ();	//åˆå§‹åŒ–
      while (1)
 	 {
 	    v=keyscan();
@@ -278,7 +278,7 @@ void  main (void)
 								 {minite++; if (minite>59) minite=0;disbuf[3]=minite%10;	disbuf[4]=minite/10;display(); v=keyscan();}
 								 while (v==128)
 								 {second++; if (second>59) second=0;disbuf[0]=second%10;  disbuf[1]=second/10;display(); v=keyscan();}
-								 disbuf[0]=second%10;  //¸üĞÂÏÔÊ¾»º³åÇø
+								 disbuf[0]=second%10;  //æ›´æ–°æ˜¾ç¤ºç¼“å†²åŒº
 								 disbuf[1]=second/10;
 							     disbuf[3]=minite%10;
 								 disbuf[4]=minite/10;
